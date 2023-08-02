@@ -7,16 +7,33 @@ app.use(cors({ origin: "http://localhost:3000" }));
 
 app.get("/", (req: Request, res: Response) => {
   console.log("getリクエストを受け付けました。");
-  const todos = {
-    todos: [
+  const todos = [
       {id: "id1", todo: "test1"},
       {id: "id2", todo: "test2"},
       {id: "id3", todo: "test3"},
       {id: "id4", todo: "test4"},
     ]
-  }
+
   return res.status(200).json({ todos });
 });
+
+app.post('/add', (req: Request, res: Response) => {
+  console.log('postメソッドを受け付けました。')
+  console.log(req)
+  return res.status(200). json({message: "POST"})
+})
+
+app.put('/update', (req: Request, res: Response) => {
+  console.log('putメソッドを受け付けました。')
+  console.log(req)
+  return res.status(200). json({message: "put"})
+})
+
+app.post('/delete', (req: Request, res: Response) => {
+  console.log('deleteメソッドを受け付けました。')
+  console.log(req)
+  return res.status(200). json({message: "delete"})
+})
 
 try {
   app.listen(PORT, () => {
