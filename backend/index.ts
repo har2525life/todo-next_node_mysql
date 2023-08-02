@@ -3,6 +3,11 @@ import express, { Application, Request, Response } from "express";
 const app: Application = express();
 const PORT = 3000;
 
+app.get("/", (req: Request, res: Response) => {
+  console.log("getリクエストを受け付けました。");
+  return "hello world";
+});
+
 try {
   app.listen(PORT, () => {
     console.log(`server running at://localhost:${PORT}`);
