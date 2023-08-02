@@ -7,7 +7,15 @@ app.use(cors({ origin: "http://localhost:3000" }));
 
 app.get("/", (req: Request, res: Response) => {
   console.log("getリクエストを受け付けました。");
-  return res.status(200).json({ message: "hello world" });
+  const todos = {
+    todos: [
+      {id: "id1", todo: "test1"},
+      {id: "id2", todo: "test2"},
+      {id: "id3", todo: "test3"},
+      {id: "id4", todo: "test4"},
+    ]
+  }
+  return res.status(200).json({ todos });
 });
 
 try {
