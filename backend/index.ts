@@ -1,11 +1,11 @@
 import express, { Application, Request, Response } from "express";
 
 const app: Application = express();
-const PORT = 3000;
+const PORT = 3001;
 
 app.get("/", (req: Request, res: Response) => {
   console.log("getリクエストを受け付けました。");
-  return "hello world";
+  return res.status(200).json({message: "hello world"})
 });
 
 try {
