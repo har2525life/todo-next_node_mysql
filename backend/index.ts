@@ -4,6 +4,8 @@ const app: Application = express();
 const PORT = 3001;
 
 app.use(cors({ origin: "http://localhost:3000" }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req: Request, res: Response) => {
   console.log("getリクエストを受け付けました。");
@@ -19,8 +21,9 @@ app.get("/", (req: Request, res: Response) => {
 
 app.post('/add', (req: Request, res: Response) => {
   console.log('postメソッドを受け付けました。')
-  console.log(req)
-  return res.status(200). json({message: "POST"})
+  console.log(req.body.data.todo)
+  // const id = 
+  return res.status(200).json({message: "POST"})
 })
 
 app.put('/update', (req: Request, res: Response) => {
